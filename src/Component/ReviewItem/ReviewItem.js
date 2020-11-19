@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { getDatabaseCart, removeFromDatabaseCart } from '../../utilities/databaseManager';
 import fakeData from '../../fakeData';
 import FoodDetails from '../FoodDetails/FoodDetails';
+import { Link } from 'react-router-dom';
 
 const ReviewItem = () => {
 
@@ -40,7 +41,9 @@ const ReviewItem = () => {
                     key = {food.key}
                     food={food}></FoodDetails>)
             }
+            
         </div>
+        
     );
 };
 

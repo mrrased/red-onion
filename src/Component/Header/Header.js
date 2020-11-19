@@ -3,8 +3,13 @@ import './Header.css';
 import images from'../../images/logo2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { useAuth } from '../Login/useAuth';
+
 
 const Header = () => {
+
+    const auth = useAuth();
+    console.log(auth.user);
     return (
         
         <div>
@@ -29,10 +34,16 @@ const Header = () => {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Login</a>
+                                {
+                                    auth.user ? <a className="nav-link" href="/login">LogOut</a> :
+                                    <a className="nav-link" href="/login">LogIn</a>
+                                }
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link signup" href="#"> <span>Sign up</span> </a>
+                             {
+                                 auth.user ? <button className="nav-link signup"><span>{auth.user.name}</span></button> :
+                                 <button className="nav-link signup" id="/login">signIn</button>
+                             }
                             </li>
                             </ul>
                         </div>

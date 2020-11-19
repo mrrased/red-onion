@@ -19,23 +19,23 @@ import LunchSource from './Component/LunchSource/LunchSource';
 import DinnerSource from './Component/DinnerSource/DinnerSource';
 import BreakeFastSource from './Component/BreakeFastSource/BreakeFastSource';
 import NotFound from './Component/NotFound/NotFound';
-import CheckOut from './Component/CheckOut/CheckOut';
 import ReviewItem from './Component/ReviewItem/ReviewItem';
 import Login from './Component/Login/Login';
-import LoginComponent from './Component/LoginComponent/LoginComponent';
+import { AuthContextProvider } from './Component/Login/useAuth';
 
 
 
 
 function App() {
+  const user = {name: 'pornima', email: 'sjdgha@gamil.com'}
   return (
     
-     <div>
+     <div> 
+       <AuthContextProvider>
        <Header></Header>
        <Banner></Banner>
        <MenuBar></MenuBar>
-       
-        <Router>
+       <Router>
          <Switch>
            <Route exact  path="/all" component={FoodProduct}>
              <FoodProduct></FoodProduct>
@@ -49,11 +49,11 @@ function App() {
            <Route exact  path="/dinner" component={Dinner}>
              <DinnerSource></DinnerSource>
            </Route>
-           <Route>
-             <ReviewItem exact  path="/Review" ></ReviewItem>
+           <Route exact  path="/review" >
+             <ReviewItem ></ReviewItem>
            </Route>
-           <Route exact  path="/login">
-              <Login ></Login>
+           <Route>
+              <Login exact  path="/"></Login>
            </Route>
            <Route path="*">
               <NotFound></NotFound>
@@ -62,9 +62,11 @@ function App() {
        </Router>
        <ChooseTsFood></ChooseTsFood>
        <Footer></Footer>
+       </AuthContextProvider>
      </div>
     
   );
 }
 
 export default App;
+// thik ache ki vai, hmm vai apnr problem ta bujte parcn vai, kothy vul korciln hmm, okau vai thank you vai

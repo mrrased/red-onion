@@ -9,6 +9,7 @@
   .card {
     border: none;
     cursor: pointer;
+    color: black;
   }
   .card-body {
     padding-bottom: 0;
@@ -25,4 +26,5 @@
     background-color: crimson;
 
   }
+  
   

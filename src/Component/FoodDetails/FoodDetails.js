@@ -1,8 +1,9 @@
 import React from 'react';
 import './FoodDetails.css';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const FoodDetails = (props) => {
+    console.log(props)
     
     const {name, description, img, price, key} = props.food;
     return (
@@ -20,7 +21,8 @@ const FoodDetails = (props) => {
                         <span className="plus"> +</span>
                         </div>
                     </div>
-                    <Link to="/login"><button className="">Add</button></Link>
+                    <button onClick={() =>props.history.push('/login')}>Add</button>
+                    {/* <button onClick={() => props.handleAddFood(props.food)} >Add</button> */}
                     <button onClick={() =>props.handleRemoveFood(key)}>Remove</button>
                 </div>
                 <div className="col-md-6">
@@ -31,4 +33,4 @@ const FoodDetails = (props) => {
     );
 };
 
-export default FoodDetails;
+export default withRouter(FoodDetails);

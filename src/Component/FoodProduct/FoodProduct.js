@@ -34,6 +34,7 @@ const handleAddFood = (food) =>{
                 {
                     <CheckOut cart={cart}></CheckOut>
                 }
+                
                 </div>
                 
      </section>

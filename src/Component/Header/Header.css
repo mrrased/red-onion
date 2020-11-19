@@ -17,14 +17,14 @@ nav a{
 } 
 .signup{
     background-color: crimson;
-    width: 110px;
     border: none;
     border-radius: 30px;
+    color: white;
     
     
 }
 .signup span{
-    margin-left: 23px;
+    padding: 5px 20px;
     color: white;
   
 }
