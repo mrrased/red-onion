@@ -1,0 +1,42 @@
+.bannerStyle{
+    background-image: url(../../../images/bannerbackground.png);
+    height: 500px;
+    background-position: center center;
+    width: 100%;
+    background-size: cover;
+}
+.banner-content{
+    padding: 160px 0;
+}
+.banner-content h2{
+    font-size: 50px;
+    padding-bottom: 15px;
+}
+/* /* h1{
+    text-align: center;
+    margin-top: 50px;    
+} */
+ .search-box input{
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    width: 35%;
+    outline-color: crimson;
+
+}
+
+.search-box button{
+    padding: 11px 35px;
+    margin-left: -35px;
+    background-color: crimson;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 3px;
+}
+
+/* .top-button{
+    padding: 5px 25px;
+    border-radius: 30px;
+    background-color: crimson;
+    border: none;
+}  */
