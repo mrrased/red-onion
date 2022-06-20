@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -16,10 +16,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import HomeIcon from '@mui/icons-material/Home';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import ReviewsIcon from '@mui/icons-material/Reviews';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PrivacyTipIcon from '@mui/icons-material/PrivacyTip';
 
 
 
@@ -94,11 +100,11 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const Dashboard = () => {
     const navigate = useNavigate();
 
-    const handleBackHome = (e) =>{
-        e.preventDefault();
+    // const handleBackHome = (e) =>{
+    //     e.preventDefault();
 
-        navigate('/');
-    }
+    //     navigate('/');
+    // }
 
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -112,18 +118,73 @@ const Dashboard = () => {
     };
 
     const itemsList = [
-        {
-            text: 'role',
-            icon: <ManageAccountsIcon />,
-            onClick: () => navigate('/dashboard/role')
-            
-        },
-        {
-            text: 'AddProduct',
-            icon: <AddCircleOutlineIcon />,
-            onClick: () => navigate('/dashboard/addProduct')
-        },
+      {
+        text: 'Home',
+        icon: <HomeIcon />,
+        onClick: () => navigate('/dashboard/dash-home')
         
+      },
+      
+      {
+        text: 'Order',
+        icon: <ShoppingCartIcon />,
+        onClick: () => navigate('/dashboard/order')
+        
+      },
+      {
+        text: 'menu',
+        icon: <RestaurantMenuIcon />,
+        onClick: () => navigate('/dashboard/dashboard-menu')
+        
+      },
+
+      {
+        text: 'Review',
+        icon: <ReviewsIcon />,
+        onClick: () => navigate('/dashboard/review')
+        
+      },
+
+      {
+        text: 'AddProduct',
+        icon: <AddCircleOutlineIcon />,
+        onClick: () => navigate('/dashboard/addProduct')
+      },
+      
+      {
+          text: 'role',
+          icon: <ManageAccountsIcon />,
+          onClick: () => navigate('/dashboard/role')
+          
+      },
+
+      {
+          text: 'Settings',
+          icon: <SettingsIcon />,
+          onClick: () => navigate('/dashboard/settings')
+          
+      },
+
+      {
+          text: 'Payment',
+          icon: <PaymentsIcon />,
+          onClick: () => navigate('/dashboard/payment')
+          
+      },
+
+      {
+          text: 'Account',
+          icon: <AccountCircleIcon />,
+          onClick: () => navigate('/dashboard/account')
+          
+      },
+
+      {
+          text: 'Help',
+          icon: <PrivacyTipIcon />,
+          onClick: () => navigate('/dashboard/help')
+          
+      },
     ]
     return (
         <Box sx={{ display: 'flex' }}>

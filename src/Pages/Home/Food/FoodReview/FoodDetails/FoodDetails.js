@@ -24,7 +24,7 @@ const FoodDetails = (props) => {
                     <button onClick={() =>props.handleRemoveFood(key)}>Remove</button>
                 </div>
                 <div className="col-md-6">
-                    <img className="w-100" src={img} alt=""/>
+                    <img className="w-100" src={`data:image/jpeg;base64,${img}`} alt=""/>
                 </div>
             </div>
         </div>

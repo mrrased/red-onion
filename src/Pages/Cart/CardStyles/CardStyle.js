@@ -10,7 +10,7 @@ const CardStyle = ({foodList}) => {
             <div className="row g-0">
                 <div className="col-md-4">
                    <div className='d-flex justify-content-center'>
-                       <img src={img} className="img-fluid rounded-start p-2" alt="..." />
+                       <img src={`data:image/jpeg;base64,${img}`} className="img-fluid rounded-start p-2" alt="..." />
                     </div>
                 </div>
                 <div className="col-md-8">

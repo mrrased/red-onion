@@ -24,6 +24,16 @@ import Role from './Pages/Dashboard/Role/Role';
 import AddProduct from './Pages/Dashboard/AddProduct/AddProduct';
 import CartDrawer from './Pages/Cart/CartDrawer/CartDrawer';
 import ConfirmOrder from './Pages/Cart/Checkout/ConfirmOrder/ConfirmOrder';
+import PaymentMethod from './Pages/Cart/Checkout/PaymentMethod/PaymentMethod';
+import Order from './Pages/Dashboard/Order/Order';
+import DashMenu from './Pages/Dashboard/DashMenu/DashMenu';
+import Review from './Pages/Dashboard/Review/Review';
+import Settings from './Pages/Dashboard/Setting/Settings';
+import Payment from './Pages/Dashboard/Payment/Payment';
+import Account from './Pages/Dashboard/Account/Account';
+import Help from './Pages/Dashboard/Help/Help';
+import Employer from './Pages/Dashboard/Employer/Employer';
+import DashHome from './Pages/Dashboard/DashHome/DashHome';
 
 
 
@@ -47,11 +57,23 @@ function App() {
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
                   <Route path='/dashboard/role' element={<Role />}></Route>
                   <Route path='/dashboard/addProduct' element={<AddProduct />}></Route>
+                  <Route path='/dashboard/order' element={<Order />}></Route>
+                  <Route path='/dashboard/dashboard-menu' element={<DashMenu />}></Route>
+                  <Route path='/dashboard/review' element={<Review />}></Route>
+                  <Route path='/dashboard/settings' element={<Settings />}></Route>
+                  <Route path='/dashboard/payment' element={<Payment />}></Route>
+                  <Route path='/dashboard/account' element={<Account />}></Route>
+                  <Route path='/dashboard/employer' element={<Employer />}></Route>
+                  <Route path='/dashboard/dash-home' element={<DashHome />}></Route>
+                  <Route path='/dashboard/help' element={<Help />}></Route>
                 </Route>
                 
                 <Route path="/review/:reviewId" element={<ReviewFood />}></Route>
                 <Route path="/cartDrawer" element={<CartDrawer />}></Route>
-                <Route path="/checkout" element={<ConfirmOrder />}></Route>
+                <Route path="/checkout/payment-Method" element={<PaymentMethod />}></Route>
+
+                <Route path="/checkout" element={<PrivateRoute><ConfirmOrder /></PrivateRoute>}></Route>
+
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/choose" element={<ChooseTsFood />}></Route>
                 <Route path="/register" element={<Register />}></Route>

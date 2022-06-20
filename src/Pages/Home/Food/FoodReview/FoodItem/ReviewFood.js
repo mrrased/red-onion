@@ -9,6 +9,7 @@ import Navigation from '../../../../Shared/Navigation/Navigation';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../../../../Hooks/useAuth';
 import Footer from '../../../../Shared/Footer/Footer';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const ReviewFood = () => {
 
@@ -63,7 +64,7 @@ const ReviewFood = () => {
         }
         
         setCart(newCart);
-        console.log(newCart);
+        // console.log(newCart);
         // shoppingCart(food);
         addToDb(food.key);
         
@@ -98,7 +99,7 @@ const ReviewFood = () => {
                     </div>
                     <div className="col-md-6">
                         <div className='d-flex justify-content-center align-items-center'>
-                            <img className="w-75" src={food?.img} alt=""/>
+                            <img className="w-50" src={`data:image/jpeg;base64,${food?.img}`} alt=""/>
                         </div>
                     </div>
                 </div>

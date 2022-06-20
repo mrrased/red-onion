@@ -17,6 +17,8 @@ const useFirebase = () => {
     const [addFoodAmount, setAddFoodAmount] = useState(0);
     const [shippingCost, setShippingCost] = useState(0);
     const [totalCost , setTotalCost] = useState(0);
+    const [process , setProcess] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     // const [ShoppingCart, setShoppingCart] = useState([]);
     
 
@@ -33,6 +35,7 @@ const useFirebase = () => {
 
     const signUpWithPassword = ( email, password, name, location, navigate) =>{
 
+        setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -51,13 +54,15 @@ const useFirebase = () => {
             const errorMessage = error.message;
             console.log(errorMessage);
             // ..
-        });
+        })
+        .finally(() => setIsLoading(false))
 
     };
 
     // SignIn User
     const signInUser = (email , password, location, navigate) =>{
 
+        setIsLoading(true)
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
@@ -73,7 +78,8 @@ const useFirebase = () => {
             
             const errorMessage = error.message;
             console.log(errorMessage);
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
 
     
@@ -88,18 +94,22 @@ const useFirebase = () => {
                 setUser({});
                 // ...
             }
+            setIsLoading(false)
         });
         return () => unsubscribe;
     },[])    
         
+    
     const signOutUser = () =>{
 
+        setIsLoading(true)
         const auth = getAuth();
         signOut(auth).then(() => {
             setUser({});
         }).catch((error) => {
         // An error happened.
-        });
+        })
+        .finally(() => setIsLoading(false))
     }
 
     
@@ -132,9 +142,14 @@ const useFirebase = () => {
 
     //  Load All Food Data
     useEffect(()=>{
+        setProcess(true);
         fetch('http://localhost:5000/food')
         .then(res => res.json())
-        .then(data => setFoods(data));
+        .then(data => {
+            setFoods(data)
+            setProcess(false);
+
+        });
     },[])
     // console.log(cart.length);
     useEffect(()=>{
@@ -215,7 +230,9 @@ const useFirebase = () => {
         shippingCost,
         totalCost,
         setCart,
-        cartQuantity
+        cartQuantity,
+        process,
+        isLoading
         
 
     }

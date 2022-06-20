@@ -18,7 +18,7 @@ const BreakFast = (props) => {
          >
                 <div className="m-4 text-center single-item">
                     <div className="card p-4">
-                        <img className="card-img-top" src={img} alt=""/>
+                        <img className="card-img-top" src={`data:image/jpeg;base64,${img}`} alt=""/>
                         <div className="card-body">
                         <h6 className="card-title">{name}</h6>
                         <p className="card-text"></p>

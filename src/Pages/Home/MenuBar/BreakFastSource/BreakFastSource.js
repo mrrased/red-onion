@@ -4,12 +4,14 @@ import BreakFast from '../BreakFast/BreakFast';
 import { addToDb } from '../../../../utilities/databaseManager';
 import CheckOut from '../../../../Component/CheckOut/CheckOut';
 import useAuth from '../../../../Hooks/useAuth';
+import CircularProgress from '@mui/material/CircularProgress';
+import { Box } from '@mui/material';
 
 const BreakFastSource = () => {
     // const breakeFastFood = fakeData.slice(12, 18);
     const [breakFast , setBreakFast] = useState([]);
     const [cart, setCart] = useState([]);
-    const {foods} = useAuth();
+    const { foods, process } = useAuth();
     
     console.log(foods);
 
@@ -29,7 +31,7 @@ const BreakFastSource = () => {
     }
     return (
         <div className="container">
-            <div className="row">
+            { process? <Box sx={{textAlign: 'center'}}><CircularProgress color="success" /></Box> : <div className="row">
                 {
                     breakFast.map(breakFast => <BreakFast
                          key = {breakFast.key}
@@ -41,7 +43,7 @@ const BreakFastSource = () => {
                 {
                     <CheckOut cart={cart}></CheckOut>
                 }
-            </div>
+            </div>}
         </div>
     );
 };

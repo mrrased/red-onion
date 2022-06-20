@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Zoom from '@mui/material/Zoom';
+import { useNavigate } from 'react-router-dom';
 
 
 // const Item = styled(Paper)(({ theme }) => ({
@@ -20,6 +21,8 @@ import Zoom from '@mui/material/Zoom';
 
 const ConfirmOrder = () => {
     const {cart} = useAuth();
+
+    const navigate = useNavigate();
 
     // useEffect(()=>{
     //     if(storeCart?.length){
@@ -42,6 +45,14 @@ const ConfirmOrder = () => {
         // console.log(total);
         let subTotal = oldPrice + cartQuantity;
         let total = oldPrice + cartQuantity + shippingCost;
+
+
+        const MoveHandler = (e) =>{
+
+            e.preventDefault();
+
+            navigate('/checkout/payment-Method')
+        }
     
     return (
         <div>
@@ -50,7 +61,8 @@ const ConfirmOrder = () => {
                 <Box sx={{ flexGrow: 1 , marginBottom: '30px'}}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={5}>
-                        <div style={{marginBottom: '20px', color: 'crimson'}}><h4 >Order Summary:</h4></div>
+                        <div style={{marginBottom: '20px', color: 'crimson'}}><h4 >Order Summary: <span style={{fontSize: '16px', fontWeight: '600'}}>{cart?.length} Item</span></h4></div>
+                        
                         <div>
                         {
                             cart?.map(foodList => <Checkout 
@@ -89,7 +101,9 @@ const ConfirmOrder = () => {
                             <Box >
                             <Tooltip 
                                 TransitionComponent={Zoom} 
-                                title="Please Add your Email">
+                                title="Please Add your Email"
+                                arrow
+                                >
                             <TextField 
                                 required
                                 fullWidth 
@@ -107,7 +121,9 @@ const ConfirmOrder = () => {
                             <Box >
                             <Tooltip 
                                 TransitionComponent={Zoom} 
-                                title="Please Add your Mobile Number">
+                                title="Please Add your Mobile Number"
+                                arrow
+                            >
                             <TextField 
                                 required
                                 fullWidth 
@@ -125,7 +141,9 @@ const ConfirmOrder = () => {
                             <Box >
                             <Tooltip 
                                 TransitionComponent={Zoom} 
-                                title="Please Add your Shipping Address">
+                                title="Please Add your Shipping Address"
+                                arrow
+                                >
                             <TextField 
                                 required
                                 fullWidth 
@@ -134,8 +152,10 @@ const ConfirmOrder = () => {
                                 id="fullWidth" 
                             />
                             </Tooltip>
+
                             </Box>
                             </Box>
+
                             <Box>
                                 <button
                                 className='w-100 py-1 mt-3'
@@ -144,9 +164,12 @@ const ConfirmOrder = () => {
                                     color: 'white', 
                                     border: 'none', 
                                     borderRadius: '30px'
+                                    
                                 }}
+                                onClick={MoveHandler}
                                 >Proceed To Payment</button>
                             </Box>
+
                         </Grid>
                     </Grid>
                 </Box>
