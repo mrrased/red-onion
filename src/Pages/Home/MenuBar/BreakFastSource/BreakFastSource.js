@@ -13,7 +13,7 @@ const BreakFastSource = () => {
     const [cart, setCart] = useState([]);
     const { foods, process } = useAuth();
     
-    console.log(foods);
+    // console.log(foods);
 
     useEffect(()=>{
       const existingFood =  foods.filter(food => food.category === 'breakfast')

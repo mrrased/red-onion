@@ -66,11 +66,12 @@ const useFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
+            setUser(userCredential.user);
 
-            const destination = location.state.from.pathname || '/';
+            const destination = location?.state?.from?.pathname || '/';
 
             navigate(destination, {replace: true});
-            setUser(userCredential.user);
+            
             // console.log(user);
             // ...
         })
@@ -97,7 +98,7 @@ const useFirebase = () => {
             setIsLoading(false)
         });
         return () => unsubscribe;
-    },[])    
+    },[auth])    
         
     
     const signOutUser = () =>{

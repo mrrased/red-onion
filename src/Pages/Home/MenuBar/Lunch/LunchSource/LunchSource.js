@@ -45,7 +45,7 @@ const LunchSource = () => {
     useEffect(()=>{
         const allLunchFood = foods.filter(food => food.category === 'lunch');
             setLunch(allLunchFood);
-            console.log(allLunchFood);
+            // console.log(allLunchFood);
     },[foods])
 
    const handleAddFood = (lunch) =>{

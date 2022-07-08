@@ -34,6 +34,7 @@ import Account from './Pages/Dashboard/Account/Account';
 import Help from './Pages/Dashboard/Help/Help';
 import Employer from './Pages/Dashboard/Employer/Employer';
 import DashHome from './Pages/Dashboard/DashHome/DashHome';
+import Edit from './Pages/Dashboard/DashMenu/Edit/Edit';
 
 
 
@@ -59,6 +60,7 @@ function App() {
                   <Route path='/dashboard/addProduct' element={<AddProduct />}></Route>
                   <Route path='/dashboard/order' element={<Order />}></Route>
                   <Route path='/dashboard/dashboard-menu' element={<DashMenu />}></Route>
+                  <Route path='/dashboard/dashboard-menu/:editKey' element={<Edit />}></Route>
                   <Route path='/dashboard/review' element={<Review />}></Route>
                   <Route path='/dashboard/settings' element={<Settings />}></Route>
                   <Route path='/dashboard/payment' element={<Payment />}></Route>

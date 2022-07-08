@@ -20,7 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   
 const ariaLabel = { 'aria-label': 'description' };
 
-const AddProduct = () => {
+const Edit = () => {
 
     const [values, setValues] = React.useState({
         amount: '',
@@ -42,7 +42,6 @@ const AddProduct = () => {
         setValues({ ...values, [prop]: event.target.value });
         setAmount(event.target.value);
     };
-    
 
     const handleSubmit = e =>{
         e.preventDefault();
@@ -79,7 +78,7 @@ const AddProduct = () => {
         <>
             <Box>
             <Typography variant="h5" component="h5" sx={{ marginBottom: '40px' }}>
-               Add New Menu
+               Edit Menu
             </Typography>
             </Box>
             <form action="" onSubmit={handleSubmit}>
@@ -244,4 +243,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default Edit;

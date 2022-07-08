@@ -19,7 +19,7 @@ const ChooseTsFood = () => {
 
                 {
                     choose.map(choose => <ChooseFood
-                        key={choose.key} 
+                        key={choose.id} 
                         choose={choose}
                         >
 
