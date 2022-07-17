@@ -3,10 +3,9 @@ import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import './Login.css';
 import useAuth from '../../../Hooks/useAuth';
-import userEvent from '@testing-library/user-event';
 
 const Login = () => {
-    const {signInUser, user} = useAuth();
+    const { signInUser } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     // console.log(auth);
@@ -16,7 +15,7 @@ const Login = () => {
     //     googleSignUp();
     // }
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
+    const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             email: '',
             password: ''}

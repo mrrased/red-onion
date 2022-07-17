@@ -1,9 +1,7 @@
 import React from 'react';
 import { 
     NavLink, 
-    Outlet , 
-    useMatch , 
-    useResolvedPath
+    Outlet
 } from 'react-router-dom';
 
 import './MenuBar.css';

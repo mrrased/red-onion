@@ -59,7 +59,7 @@ const AddProduct = () => {
         
         productData.append('image', image);
 
-        fetch('http://localhost:5000/food',{
+        fetch('https://safe-anchorage-91427.herokuapp.com/food',{
 
             method: 'POST',
             enctype: "multipart/form-data",

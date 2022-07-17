@@ -7,7 +7,7 @@ const Register = () => {
     const location = useLocation()
     const navigate = useNavigate();
 
-    const {signUpWithPassword, user} = useAuth();
+    const { signUpWithPassword } = useAuth();
 
     const { register, handleSubmit,  formState: { errors } } = useForm({
         defaultValues: {

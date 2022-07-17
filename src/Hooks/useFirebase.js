@@ -1,7 +1,7 @@
 import {GoogleAuthProvider ,  getAuth, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut  } from "firebase/auth";
 import { useEffect, useState } from "react";
 import AuthenticationInitialize from '../Firebase/FIrebase.Init';
-import { addToDb, getStoredCart } from "../utilities/databaseManager";
+import { getStoredCart } from "../utilities/databaseManager";
 
 
 AuthenticationInitialize();
@@ -131,7 +131,7 @@ const useFirebase = () => {
     const savedUser = (email, displayName, method) =>{
 
         const users = {email, displayName};
-        fetch('http://localhost:5000/users',{
+        fetch('https://safe-anchorage-91427.herokuapp.com/users',{
             method: method,
             headers:{
                 'content-type': 'application/json'
@@ -144,7 +144,7 @@ const useFirebase = () => {
     //  Load All Food Data
     useEffect(()=>{
         setProcess(true);
-        fetch('http://localhost:5000/food')
+        fetch('https://safe-anchorage-91427.herokuapp.com/food')
         .then(res => res.json())
         .then(data => {
             setFoods(data)

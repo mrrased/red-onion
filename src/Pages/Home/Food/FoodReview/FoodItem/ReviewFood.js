@@ -1,21 +1,19 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { addToDb, getDatabaseCart, removeFromDatabaseCart } from '../../../../../utilities/databaseManager';
-import fakeData from '../../../../../fakeData';
+import { addToDb } from '../../../../../utilities/databaseManager';
 import './ReviewFood.css';
-import FoodDetails from '../FoodDetails/FoodDetails';
 import Navigation from '../../../../Shared/Navigation/Navigation';
 import { useParams } from 'react-router-dom';
 import useAuth from '../../../../../Hooks/useAuth';
 import Footer from '../../../../Shared/Footer/Footer';
-import CircularProgress from '@mui/material/CircularProgress';
+import Fab from '@mui/material/Fab';
 
 const ReviewFood = () => {
 
     // const [cart, setCart] = useState([]);
     const reviewId = useParams();
-    const {foods, shoppingCart, cart, setCart} = useAuth();
+    const {foods, cart, setCart} = useAuth();
     const [food, setFood] = useState([]);
     
 
@@ -75,7 +73,7 @@ const ReviewFood = () => {
             <Navigation />
             {/* <h1>Total Food Order: {cart.length}</h1> */}
             
-            <div className="container reviewStyle" style={{border: '1px solid crimson', padding: '20px', borderRadius: '10px'}}>
+            <div className="container reviewStyle" style={{border: '1px solid crimson', padding: '20px', borderRadius: '10px', marginBottom: '50px'}}>
                 <div className="row">
                     <div className="col-md-6 detailStyle d-flex align-items-center">
                             <div className=''>
@@ -91,8 +89,10 @@ const ReviewFood = () => {
                                 <span className="plus"> +</span>
                                 </div>
                                 </div>
-                                <button onClick={productAddToCart}>Order</button>
-                                <button >Add</button>
+                                {/* <button >Order</button> */}
+                                <Fab variant="extended" sx={{backgroundColor: 'crimson', color: 'white', width: '40%', marginTop: '15px', ":hover ":{borderColor: 'crimson', color: 'crimson'}}} onClick={productAddToCart}>
+                                Order
+                                </Fab>
                                 {/* <button onClick={() =>handleRemoveFood(key)}>Remove</button> */}
                                 
                             </div>
