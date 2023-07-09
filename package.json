@@ -24,7 +24,8 @@
     "react-scripts": "3.4.1",
     "react-window": "^1.8.7",
     "styled-components": "^5.3.5",
-    "protobufjs": ">=7.2.4"
+    "protobufjs": ">=7.2.4",
+    "shell-quote": ">=1.7.3"
   },
   "scripts": {
     "start": "react-scripts start",
