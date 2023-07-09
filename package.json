@@ -23,7 +23,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "3.4.1",
     "react-window": "^1.8.7",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "protobufjs": ">=7.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
